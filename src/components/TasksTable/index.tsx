@@ -1,9 +1,9 @@
+import { useState } from "react";
 import type { Task } from "../../types/task";
 import { useAppDispatch } from "../../store/hooks";
 import { deleteTask } from "../../store/tasksSlice";
-import styles from "./TaskTable.module.scss";
-import { useState } from "react";
 import EditTaskModal from "../EditTaskModal/EditTaskModal";
+import styles from "./TaskTable.module.scss";
 
 interface Props {
   tasks: Task[];
@@ -12,6 +12,12 @@ interface Props {
 export default function TasksTable({ tasks }: Props) {
   const dispatch = useAppDispatch();
   const [editingTask, setEditingTask] = useState<Task | null>(null);
+  const [page, setPage] = useState(1);
+  const pageSize = 5;
+
+  const startIndex = (page - 1) * pageSize;
+  const currentTasks = tasks.slice(startIndex, startIndex + pageSize);
+  const totalPages = Math.ceil(tasks.length / pageSize);
 
   return (
     <>
@@ -29,7 +35,7 @@ export default function TasksTable({ tasks }: Props) {
         </thead>
 
         <tbody>
-          {tasks.map((t) => (
+          {currentTasks.map((t) => (
             <tr key={t.id} className={styles.mobileCard}>
               <td data-label="Title">{t.title}</td>
               <td data-label="Assigned">{t.assignedTo || "-"}</td>
@@ -37,7 +43,6 @@ export default function TasksTable({ tasks }: Props) {
               <td data-label="Hours">{t.estimatedHours || "-"}</td>
               <td data-label="Category">{t.category}</td>
               <td data-label="Status">{t.status}</td>
-
               <td data-label="" className={styles.actions}>
                 <button onClick={() => setEditingTask(t)}>Edit</button>
                 <button onClick={() => dispatch(deleteTask(t.id))}>Delete</button>
@@ -46,6 +51,12 @@ export default function TasksTable({ tasks }: Props) {
           ))}
         </tbody>
       </table>
+
+      <div className={styles.pagination}>
+        <button onClick={() => setPage((p) => p - 1)} disabled={page === 1}>Prev</button>
+        <span>{page} / {totalPages}</span>
+        <button onClick={() => setPage((p) => p + 1)} disabled={page === totalPages}>Next</button>
+      </div>
 
       {editingTask && (
         <EditTaskModal task={editingTask} onClose={() => setEditingTask(null)} />
