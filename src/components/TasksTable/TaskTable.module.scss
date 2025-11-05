@@ -1,0 +1,83 @@
+@use "../../styles/mixins.scss" as *;
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  th, td {
+    padding: 12px;
+    border-bottom: 1px solid $border-color;
+    text-align: left;
+  }
+
+  th {
+    font-weight: 600;
+    color: $text-secondary;
+  }
+
+  tr:hover td {
+    background: rgba(0,0,0,0.03);
+  }
+}
+
+/* ✅ Mobile Card View */
+@media (max-width: 768px) {
+  .table thead {
+    display: none;
+  }
+
+  .table tr {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    margin-bottom: 12px;
+    border: 1px solid $border-color;
+    border-radius: $radius;
+    padding: 12px;
+  }
+
+  .table td {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: $text-secondary;
+    padding-right: 10px;
+  }
+}
+
+/* Actions buttons */
+.actions {
+  display: flex;
+  gap: 8px;
+
+  button {
+    border: 1px solid $border-color;
+    padding: 6px 10px;
+    background: white;
+    border-radius: $radius;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(0,0,0,0.05);
+    }
+  }
+}
+
+/* Buttons stacked on mobile */
+@media (max-width: 768px) {
+  .actions {
+    flex-direction: column;
+
+    button {
+      width: 100%;
+      padding: 10px;
+    }
+  }
+}

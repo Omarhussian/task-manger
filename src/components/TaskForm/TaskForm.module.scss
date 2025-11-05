@@ -1,0 +1,40 @@
+@use "../../styles/mixins.scss" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+input, select, textarea {
+  @include input;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.btn {
+  padding: 10px 14px;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  background: white;
+  width: fit-content;
+  cursor: pointer;
+  font-weight: 500;
+
+  &:hover {
+    background: rgba(0,0,0,0.05);
+  }
+}
