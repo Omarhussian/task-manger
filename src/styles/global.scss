@@ -1,0 +1,23 @@
+@use "./variables.scss" as *;
+@use "./mixins.scss" as *;
+
+body {
+  margin: 0;
+  background: $bg-main;
+  font-family: 'Inter', sans-serif;
+  color: $text-primary;
+}
+
+a {
+  text-decoration: none;
+  color: $text-primary;
+
+  &:hover {
+    color: $accent;
+  }
+}
+
+h1, h2, h3 {
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}

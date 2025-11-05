@@ -1,0 +1,29 @@
+@forward "./variables.scss";
+@use "./variables.scss" as *;
+
+@mixin card {
+    background: $bg-card;
+    border: 1px solid $border-color;
+    border-radius: $radius;
+    padding: 20px;
+    box-shadow: $shadow;
+  }
+  
+  @mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @mixin input {
+    padding: 10px 12px;
+    border: 1px solid $border-color;
+    border-radius: $radius;
+    font-size: 14px;
+    background: white;
+    outline: none;
+  
+    &:focus {
+      border-color: $accent;
+    }
+  }
