@@ -1,4 +1,4 @@
-import { BrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter, NavLink } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
 import styles from "./styles/LayoutComponents/Nav.module.scss";
 
@@ -7,8 +7,18 @@ export default function App() {
     <BrowserRouter>
       <div>
         <nav className={styles.nav}>
-          <Link to="/tasks">Tasks</Link>
-          <Link to="/dashboard">Dashboard</Link>
+          <NavLink 
+            to="/tasks"
+            className={({ isActive }) => isActive ? styles.active : ''}
+          >
+            Tasks
+          </NavLink>
+          <NavLink 
+            to="/dashboard"
+              className={({ isActive }) => isActive ? styles.active : ''}
+            >
+            Dashboard
+          </NavLink>
         </nav>
 
         <AppRoutes />
