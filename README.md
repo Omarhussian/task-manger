@@ -1,85 +1,32 @@
-# Task Manager - React (CRUD + Dashboard)
+# Task Manager App
 
-A clean and modern task management application built with **React + TypeScript + Redux Toolkit + SCSS Modules**
-
-This project demonstrates:
-
--  Scalable folder structure
--  CRUD (Create / Read / Update / Delete) with local storage persistence
--  Responsive design (mobile-first cards layout)
--  Dashboard with charts (Recharts)
--  Edit modal + form validation
--  Toast notifications & clean UX interactions
--  Reusable Icon system (Lucide icons)
--  Clean maintainable code
+A small task management app built with React, TypeScript, and Redux.  
+You can create, edit, and track tasks by status and category, with a simple dashboard overview.
 
 ---
 
-##  Tech Stack
+##  Project Setup
 
-| Category | Tools |
-|---------|------|
-Language | TypeScript  
-Framework | React (Vite)  
-State Management | Redux Toolkit  
-Storage | LocalStorage (in-memory service abstraction)  
-Styling | SCSS Modules  
-Charts | Recharts  
-Icons | Lucide-React  
-Forms | React Hook Form  
-UI Strategy | Notion-style minimal + responsive  
+1. Clone the repo  
+   ```bash
+   git clone
 
+2.	Install dependencies
+    ```bash
+    npm install
+
+3.	Start the development server
+    ```bash
+    npm run dev
 ---
+## Architecture and Design
 
-##  Folder Structure
-src/
-├─ api/               # abstracted data layer (local storage service)
-├─ components/        # reusable UI components
-│   ├─ TaskForm/
-│   ├─ TasksTable/
-│   └─ Icon/
-├─ pages/             # App screens (Tasks + Dashboard)
-├─ store/             # Redux store + slice
-├─ types/             # Global TypeScript types
-├─ styles/            # Global SCSS + theme vars
-├─ routes/            # App routing
-├─ App.tsx
-└─ main.tsx
-Architectural decision:  
-> Data layer abstracted in `/api` so real backend can be plugged later without changing UI.
+The app is structured using a feature-based folder organization.
+Redux Toolkit is used for state management, and React Hook Form with Yup handles form validation.
+SCSS modules are used for component-level styling to keep styles isolated and maintainable.
 
----
+## Demo
+You can check the short demo video or screenshots in the repository for a quick overview.
 
-## 🧠 Features
-
-### Core
-- Add / edit / delete tasks
-- Categories & statuses
-- Estimated hours & deadlines
-- Validation + clean UX
-- Toast notifications
-
-### Dashboard
-- Total tasks count
-- Status distribution (Bar chart)
-- Category distribution (Pie chart)
-
-### UI/UX
-- Notion-like white-space + soft shadows
-- Responsive (table → mobile cards)
-- Modal editing
-- Empty state view
-- Smooth user flows
-
----
-
-## 📦 Installation
-
-```bash
-npm install
-npm run dev
-
-
-## 📦 Author 
-Built with <3 by Omar Hussain
-
+![Tasks Page](assets/screenshot1.png)
+![Dashboard](assets/screenshot2.png)
