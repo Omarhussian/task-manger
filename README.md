@@ -28,5 +28,5 @@ SCSS modules are used for component-level styling to keep styles isolated and ma
 ## Demo
 You can check the short demo video or screenshots in the repository for a quick overview.
 
-![Tasks Page](assets/screenshot1.png)
-![Dashboard](assets/screenshot2.png)
+![Tasks Page](./src/assets/screenshot1.png)
+![Dashboard](./src/assets/screenshot2.png)
